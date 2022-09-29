@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    : Cart
+{% endblock %}
+
+{% block main %}
+
+<section class="featured" id="featured">
+    <h1 class="heading_cart"><span>Cart</span></h1>
+
+    <div class="swiper featured-slider">
+      <div>
+
+        {% for book in books %}
+        <div class="cart">
+          <div class="image">
+            <img src="static/image/book-{{ book['item_id'] }}.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h3>{{ book["items"] }}</h3>
+            <div class="price">$15.99</div>
+          </div>
+          <form action="/remove" method="post">
+            <input name="remove_id" type="hidden" value="{{ book['item_id'] }}">
+            <input class="btn" type="submit" value="Remove">
+          </form>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    </section>
+
+{% endblock %}

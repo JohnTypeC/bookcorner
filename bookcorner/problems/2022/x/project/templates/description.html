@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    : description
+{% endblock %}
+
+{% block main %}
+
+<section class="featured" id="featured">
+    <h1 class="heading_dep"><span>Description</span></h1>
+
+    <div class="swiper featured-slider">
+      <div>
+        <div class="dep">
+          <div class="image">
+            <img src="static/image/book-{{ books_id }}.jpg" alt="" />
+          </div>
+          <div class="content">
+            <h3>{{ books_title }}</h3>
+            <p>Lorem Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+            <div class="price">$15.99</div>
+          </div>
+          <form action="/cart" method="post">
+            <input name="id" type="hidden" value="{{ books_id }}">
+            <input class="btn" type="submit" value="Add to Cart">
+          </form>
+        </div>
+      </div>
+    </div>
+    </section>
+
+{% endblock %}
